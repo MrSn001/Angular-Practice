@@ -1,5 +1,15 @@
 <header class="site-header">
   <a class="brand" routerLink="/">Shop</a>
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="search-input"
+      (keyup.enter)="onSearch(searchInput.value)"
+      #searchInput
+    />
+    <button class="search-btn" (click)="onSearch(searchInput.value)">Search</button>
+  </div>
   <nav class="nav">
     <a routerLink="/">Home</a>
   </nav>
