@@ -1,0 +1,21 @@
+<div class="search-results-container">
+  <h2>Search Results</h2>
+  <a routerLink="/" class="back-link">← Back to Home</a>
+  @if (searchQuery()) {
+    <p>Showing results for: <strong>{{ searchQuery() }}</strong></p>
+    
+    @if (filteredProducts().length > 0) {
+      <div class="grid">
+        @for (product of filteredProducts(); track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    } @else {
+      <div class="results-list">
+        <p>No results found for "{{ searchQuery() }}".</p>
+      </div>
+    }
+  } @else {
+    <p>Please enter a search query.</p>
+  }
+</div>
